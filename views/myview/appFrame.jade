@@ -1,0 +1,43 @@
+doctype html
+
+html
+    head
+        title #{appTitle}
+        meta(charset='utf-8')
+        // import bootstrap
+        link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+
+        script(href='/jquery/jquery.min.js')
+        script(href='/popper/popper.min.js')
+        script(href='/bootstrap/js/bootstrap.min.js')
+    body
+        div(class='container')
+            div(class='row')
+                block main
+            div(class='row justify-content-center fixed-bottom')
+                ul(class='nav text-center h3')
+                    li(class='nav-item col-3')
+                        // the class .img-fluid supports the responsive page.
+                        img(src='images/icon1.png' class='img-fluid')
+                        br
+                        strong 首页
+                    li(class='nav-item col-3')
+                        img(src='images/icon1.png'  class='img-fluid')
+                        br
+                        strong 学生
+                    li(class='nav-item col-3')
+                        img(src='images/icon1.png'  class='img-fluid')
+                        br
+                        strong 课程
+                    li(class='nav-item col-3')
+                        img(src='images/icon1.png'  class='img-fluid')
+                        br
+                        strong 我
+                    //- li(class='nav-item col-3')
+                    //-     a(class='nav-link' href='#') Home
+                    //- li(class='nav-item col-3')
+                    //-     a(class='nav-link' href='#') 学生
+                    //- li(class='nav-item col-3')
+                    //-     a(class='nav-link' href='#') Home
+                    //- li(class='nav-item col-3')
+                    //-     a(class='nav-link' href='#') Home
