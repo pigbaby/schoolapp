@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>The BootStrap Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/bootstrap/css/bootstrap.min.css"/>
+    <script src="/jquery/jquery.slim.min.js"></script>
+    <script src="/popper/popper.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Create a layout -->
+        <div class="container fixed-bottom">
+            <div class="row">
+                <!-- hide the comments information by collapse -->
+                <div class="col-2">
+                    <div class="pos-f-t">
+                        <div class="collapse" id="navbarToggleExternalContent">
+                            <div class="bg-dark p-4">
+                                <h5 class="text-white h4">Collapsed content</h5>
+                                <span class="text-muted">Toggleable via the navbar brand.</span>
+                            </div>
+                        </div>
+                        <nav class="navbar navbar-dark bg-dark">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
+                                aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </nav>
+                    </div>
+                </div>
+                <!-- the main navigation bar -->
+                <div class="col-10">
+                    <!-- Create a navigation bar with the navbar class. navbar-expand-lg controls the display style-->
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+                        <!-- The button for collapse.  data-target mappes the collapse target -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="navbar-brand">
+                            <img src="/images/company.png" width="80" height="30" class="d-inline-block align-center mb-1">
+                            <a class="ml-3 h4" href="#">亿泰科技</a>
+                        </div>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="#">home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">link</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">disabled</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                        data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                                        DropDown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another Action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Action II</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>

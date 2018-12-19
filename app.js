@@ -4,15 +4,18 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var ejs=require('ejs');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var myRouter=require('./routes/myrouter');
 
 var app = express();
 
-// view engine setup
+// change view engine configuration to use html page
 app.set('views', [path.join(__dirname, 'views'),path.join(__dirname,'views/myview')]);
-app.set('view engine', 'jade');
+app.engine('html', ejs.__express);
+app.set('view engine','html');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -20,9 +23,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/123',myRouter);
+app.use('/', myrouter);
+// app.use('/users', usersRouter);
+// app.use('/123',myRouter);
 
 // Define the bootstrap path
 app.use('/bootstrap',express.static(path.join(__dirname,'node_modules/bootstrap/dist')));
