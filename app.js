@@ -23,12 +23,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', myrouter);
+app.use('/', myRouter);
 // app.use('/users', usersRouter);
 // app.use('/123',myRouter);
 
 // Define the bootstrap path
-app.use('/bootstrap',express.static(path.join(__dirname,'node_modules/bootstrap/dist')));
+app.use('/bootstrap',express.static(path.join(__dirname,'node_modules/bootstrap')));
 app.use('/popper',express.static(path.join(__dirname,'node_modules/popper.js/dist/umd')));
 app.use('/jquery',express.static(path.join(__dirname,'node_modules/jquery/dist')));
 
