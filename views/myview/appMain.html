@@ -4,7 +4,8 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>The Main Page of School</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/style.css"/>
         <link rel="stylesheet" type="text/css" media="screen" href="/bootstrap/dist/css/bootstrap.min.css"/>
         <script src="/jquery/jquery.slim.min.js"></script>
         <script src="/popper/popper.min.js"></script>
@@ -12,27 +13,10 @@
     </head>
     <body>                  
         <header>
-            <nav class="navbar bg-dark navbar-default fixed-top">
-                <div id="container text-success">
-                    <ul class="nav">
-                        <li class="nav-item col-3">
-                            <a href="#">首页</a>
-                        </li>
-                        <li class="nav-item col-3">
-                            <a href="#">学生</a>
-                        </li>
-                        <li class="nav-item col-3">
-                            <a href="#">课程</a>
-                        </li>
-                        <li class="nav-item col-3">
-                            <a href="#">设置</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            
         </header>
         <main>
-            <div class="mt-4">
+            <div class="container" style="margin-bottom:3rem!important">
                 <div>
                     <img src="images/wushu.jpg" class="img-fluid"/>
                 </div>
@@ -48,7 +32,42 @@
             </div>
         </main>
         <footer>
-                
+            <div class="container bg-white fixed-bottom">
+                    <div class="row justify-content-center">
+                        <nav class="navbar">
+                            <ul class="nav justify-content-center text-success text-center">
+                                <li class="nav-item col-3">
+                                    <a href="#">
+                                        <img src="images/main.png" height="50" width="50"/>
+                                        <br>
+                                        课程
+                                    </a>
+                                </li>
+                                <li class="nav-item col-3">
+                                    <a href="#">
+                                        <img src="images/classes.png" height="50" width="50"/>
+                                        <br>
+                                        学员
+                                    </a>
+                                </li>
+                                <li class="nav-item col-3">
+                                    <a href="#">
+                                        <img src="images/select.png" height="50" width="50"/>
+                                        <br>
+                                        查询
+                                    </a>
+                                </li>
+                                <li class="nav-item col-3">
+                                    <a href="#">
+                                        <img src="images/list.png" height="50" width="50"/>
+                                        <br>
+                                        我
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
         </footer>
     </body>
 </html>
