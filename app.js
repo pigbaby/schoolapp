@@ -13,7 +13,7 @@ var myRouter=require('./routes/myrouter');
 var app = express();
 
 // change view engine configuration to use html page
-app.set('views', [path.join(__dirname, 'views'),path.join(__dirname,'views/myview')]);
+app.set('views', [path.join(__dirname, 'views'),path.join(__dirname,'views/myview'),path.join(__dirname,'views/testview')]);
 app.engine('html', ejs.__express);
 app.set('view engine','html');
 

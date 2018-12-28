@@ -6,4 +6,9 @@ router.get('/',function(req,res,next){
     //res.sendFile('bootStrap');
 });
 
+// This is a router for test page.
+router.get('/test',function(req,res,next){
+    res.render('jquerytest');
+});
+
 module.exports=router;
