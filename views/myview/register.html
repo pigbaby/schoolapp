@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>学校课外注册小系统</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/style.css"/>
+        <link rel="stylesheet" type="text/css" media="screen" href="/bootstrap/dist/css/bootstrap.min.css"/>
+        <script src="/jquery/jquery.min.js"></script>
+        <script src="/popper/popper.min.js"></script>
+        <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <main>
+            <form class="" id="select_class" action="#" method="POST">
+                <fieldset class="form-group">
+                    <div class="row">
+                        <legend class="col-form-label col-sm-2 pt-0">星期一的课程</legend>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="monday" id="monday1" value="monday1">
+                                <label class="form-check-label" for="monday1">
+                                    数学思维社团1
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="monday" id="monday2" value="monday2">
+                                <label class="form-check-label" for="gridRadios2">
+                                    数学思维社团2
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="monday" id="monday3" value="monday3">
+                                <label class="form-check-label" for="monday3">
+                                    数学思维社团3
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+    
+                <fieldset class="form-group">
+                    <div class="row">
+                        <legend class="col-form-label col-sm-2 pt-0">星期二的课程</legend>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="tuesday" id="tuesday1" value="tuesday1">
+                                <label class="form-check-label" for="tuesday1">
+                                    数学思维社团1
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="tuesday" id="tuesday2" value="tuesday2">
+                                <label class="form-check-label" for="gridRadios2">
+                                    数学思维社团2
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="tuesday" id="tuesday3" value="tuesday3">
+                                <label class="form-check-label" for="tuesday3">
+                                    数学思维社团3
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+    
+                <fieldset class="form-group">
+                    <div class="row">
+                        <legend class="col-form-label col-sm-2 pt-0">星期三的课程</legend>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="wendesday" id="wendesday1" value="wendesday1">
+                                <label class="form-check-label" for="wendesday1">
+                                    数学思维社团1
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="wendesday" id="wendesday2" value="wendesday2">
+                                <label class="form-check-label" for="gridRadios2">
+                                    数学思维社团2
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="wendesday" id="wendesday3" value="wendesday3">
+                                <label class="form-check-label" for="wendesday3">
+                                    数学思维社团3
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+    
+                <div class="form-group row">
+                    <div>
+                        <button id="submit" type="submit" class="btn btn-primary">提交注册</button>
+                    </div>
+                </div>
+            </form>
+        </main>
+
+        <footer>
+            <div class="container bg-white fixed-bottom mt-1">
+                <div class="row">
+                    <nav class="navbar">
+                        <strong id="curUser" name="curUser" class="align-baseline mx-1">四年一班 彭亦飞飞</strong>
+                        <ul class="nav font-weight-bold text-success text-center">
+                            <li class="nav-item mx-1">
+                                <a href="/register">
+                                    <img src="images/main.png" height="30" width="30"/>
+                                    <br>
+                                    我要报名
+                                </a>
+                            </li>
+                            <li class="nav-item mx-1">
+                                <a href="#">
+                                    <img src="images/classes.png" height="30" width="30"/>
+                                    <br>
+                                    我的报名
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </footer>
+      
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <p id='selected'></p>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        $("#submit").click(function(event){
+            event.preventDefault();
+            // alert("hello, let's rock");
+            // console.log($('#select_class'));
+            alert($("#select_class").serialize())
+            $('#selected').html($("#select_class").serialize());
+            $('#exampleModal').modal('show');
+        });
+    </script>
+</html>
