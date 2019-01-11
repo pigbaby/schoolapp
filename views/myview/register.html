@@ -108,13 +108,6 @@
                         <strong id="curUser" name="curUser" class="align-baseline mx-1">四年一班 彭亦飞飞</strong>
                         <ul class="nav font-weight-bold text-success text-center">
                             <li class="nav-item mx-1">
-                                <a href="/register">
-                                    <img src="images/main.png" height="30" width="30"/>
-                                    <br>
-                                    我要报名
-                                </a>
-                            </li>
-                            <li class="nav-item mx-1">
                                 <a href="#">
                                     <img src="images/classes.png" height="30" width="30"/>
                                     <br>
@@ -150,13 +143,15 @@
     </body>
 
     <script>
-        $("#submit").click(function(event){
-            event.preventDefault();
-            // alert("hello, let's rock");
-            // console.log($('#select_class'));
-            alert($("#select_class").serialize())
-            $('#selected').html($("#select_class").serialize());
-            $('#exampleModal').modal('show');
+        $(document).ready(function(){
+            $("#submit").click(function(event){
+                event.preventDefault();
+                // alert("hello, let's rock");
+                // console.log($('#select_class'));
+                alert($("#select_class").serialize())
+                $('#selected').html($("#select_class").serialize());
+                $('#exampleModal').modal('show');
+            });
         });
     </script>
 </html>

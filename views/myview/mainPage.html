@@ -206,7 +206,7 @@
                         <strong id="curUser" name="curUser" class="align-baseline mx-1">四年一班 彭亦飞飞</strong>
                         <ul class="nav font-weight-bold text-success text-center">
                             <li class="nav-item mx-1">
-                                <a href="/register">
+                                <a id="regLink">
                                     <img src="images/main.png" height="30" width="30"/>
                                     <br>
                                     我要报名
@@ -225,9 +225,85 @@
             </div>
         </footer>
 
+        <!-- Pop-up Modal -->
+        <div class="modal fade" id="popModal" tabindex="-1" role="dialog" aria-labelledby="popModalLable" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="popModalLable">请选择需要报名的学生</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="selectForm" name="selectForm">
+                            <div class="form-group">
+                                <label for="gradeList">请选择年级</label>
+                                <select class="form-control" name="grade" id="gradeList">
+                                    <option value="1.1">一年级一班</option>
+                                    <option value="1.2">一年级二班</option>
+                                    <option value="1.3">一年级三班</option>
+                                    <option value="1.4">一年级四班</option>
+                                    <option value="2.1">二年级一班</option>
+                                    <option value="2.2">二年级二班</option>
+                                    <option value="2.3">二年级三班</option>
+                                    <option value="2.4">二年级四班</option>
+                                    <option value="3.1">三年级一班</option>
+                                    <option value="3.2">三年级二班</option>
+                                    <option value="3.3">三年级三班</option>
+                                    <option value="3.4">三年级四班</option>
+                                    <option value="4.1">四年级一班</option>
+                                    <option value="4.2">四年级二班</option>
+                                    <option value="4.3">四年级三班</option>
+                                    <option value="4.4">四年级四班</option>
+                                    <option value="5.1">五年级一班</option>
+                                    <option value="5.2">五年级二班</option>
+                                    <option value="5.3">五年级三班</option>
+                                    <option value="5.4">五年级四班</option>
+                                    <option value="6.1">六年级一班</option>
+                                    <option value="6.2">六年级二班</option>
+                                    <option value="6.3">六年级三班</option>
+                                    <option value="6.4">六年级四班</option>
+                                </select>
+                                <input class="form-control" type="input" placeholder="输入学生姓名" id="stuName" name="name">
+                            </div>
+                        </form>
+                        <p id='selected'></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="cancelBtn" data-dismiss="modal">等会选</button>
+                        <button type="button" class="btn btn-primary" id="selectBtn">选了</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!--Script-->
         <script>
-        
+            $(document).ready(function(){
+                // popup the modal when click "我要报名" button.
+                $("#regLink").click(function(event){
+                    event.preventDefault();
+                    // if($('#curUser').html().length==0){
+                    //     // alert("OK, you click me!");
+                    //     $("#popModal").modal('show');
+                    // }
+                    $("#popModal").modal('show');
+                });
+                // clear the inputed when click "等会选" button in the modal.
+                $("#cancelBtn").click(function(event){
+                    $("#stuName").val("");
+                });
+
+                // check the input student information and submit
+                $('#selectBtn').click(function(event){
+                    event.preventDefault();
+                    // alert("OK, let's go" + $('#selectForm').serialize());
+                    $.post('/checkgrade', $('#selectForm').serialize(),function(data){
+                        alert('服务器返回'+data);
+                    });
+                });
+            });
         </script>
     </body>
 </html>

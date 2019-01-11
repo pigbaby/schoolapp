@@ -3,7 +3,11 @@ var router=express.Router();
 
 // test mongodb
 var MongoClient=require('mongodb').MongoClient;
-var url="mongodb://localhost:27017";
+var dbUrl="mongodb://localhost:27017";
+// the database name in Mongodb
+var testDboName='test';
+// the collection name in mongodb
+var testCol='users';
 
 // main router mainPage-->register
 router.get('/',function(req,res,next){
@@ -17,6 +21,48 @@ router.all('/register',function(req,res,next){
 
 router.get('/access',function(req,res,next){
     res.render('appMain');
+});
+
+// check the submit data
+router.post('/checkgrade',function(req,res,next){
+    console.log(req.body);
+    var dbresult;
+    MongoClient.connect(dbUrl,{useNewUrlParser:true},function(err,db){
+        if(err) throw err;
+        var dbo=db.db(testDboName);
+        dbresult=dbo.collection(testCol).find({role:req.body.grade,name:req.body.name}).toArray(function(err,result){
+            if(err) throw err;
+            //dbresult=result;
+            console.log(result.length);
+            // res.end('end');
+            
+            db.close();
+            return result.length;
+        });
+        console.log(dbresult);
+        if(dbresult==0){
+            res.end('no');
+        }else{
+            res.end('end');
+        }
+    });
+
+    // get the information from mongo DB
+    // try{
+    //     MongoClient.connect(dbUrl,{useNewUrlParser:true},function(err,db){
+    //         if(err) throw err;
+    //         var dbo=db.db(testDboName);
+    //         dbo.collection(testCol).find({role:req.body.grade,name:req.body.name}).toArray(function(err,result){
+    //             if(err) throw err;
+    //             console.log(result);
+    //             res.end('end');
+    //             db.close();
+    //             // console.log('databas close');
+    //         });
+    //     });
+    // }catch(err){
+    //     res.status(404).end('database error!');
+    // }
 });
 
 // the below routers are for test.
