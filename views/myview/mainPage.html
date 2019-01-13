@@ -203,7 +203,7 @@
             <div class="container bg-white fixed-bottom mt-1">
                 <div class="row">
                     <nav class="navbar">
-                        <strong id="curUser" name="curUser" class="align-baseline mx-1">四年一班 彭亦飞飞</strong>
+                        <strong id="curUser" name="curUser" class="align-baseline mx-1"></strong>
                         <ul class="nav font-weight-bold text-success text-center">
                             <li class="nav-item mx-1">
                                 <a id="regLink">
@@ -298,9 +298,25 @@
                 // check the input student information and submit
                 $('#selectBtn').click(function(event){
                     event.preventDefault();
+                    let selectGrade=$('#gradeList').find('option:selected').text();
+                    let selectName=$('#stuName').val();
+                    let selectGradeId=$('#gradeList').val();
+
                     // alert("OK, let's go" + $('#selectForm').serialize());
                     $.post('/checkgrade', $('#selectForm').serialize(),function(data){
-                        alert('服务器返回'+data);
+                        //alert('服务器返回'+data);
+                        //alert('服务器上传:'+$('#selectForm').serialize());
+                        // alert('年级选择'+$('#gradeList').find('option:selected').text());
+                        if(data=='0'){
+                            alert('在'+selectGrade+'中没有找到学生名字，请重新选择学生。');
+                        }else{
+                            // set the grade and name in the page
+                            // alert(selectGrade+' '+selectName);
+
+                            //$('curUser').html(selectGrade+' '+selectName);
+                            // $(location).attr('param',selectGrade+' '+selectName);
+                            $(location).attr('href','/register?gradename='+selectGrade+'&gradeid='+selectGradeId+'&name='+selectName);
+                        }
                     });
                 });
             });

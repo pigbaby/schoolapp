@@ -4,49 +4,62 @@ var router=express.Router();
 // test mongodb
 var MongoClient=require('mongodb').MongoClient;
 var dbUrl="mongodb://localhost:27017";
+var homeUrl="mongodb://192.168.3.67:27017";
 // the database name in Mongodb
 var testDboName='test';
+var homtDboName='students';
 // the collection name in mongodb
 var testCol='users';
+var homeCol='student';
 
 // main router mainPage-->register
 router.get('/',function(req,res,next){
     res.render('mainPage');
 });
 
-router.all('/register',function(req,res,next){
-    console.log(req.body);
-    res.render('register');
-});
-
 router.get('/access',function(req,res,next){
     res.render('appMain');
 });
 
+router.get('/register',function(req,res,next){
+    // console.log(req.params);
+    // // console.log(req.url);
+    // var reqUrl=req.url;
+    // var params=new Array();
+
+    // params=reqUrl.split(/[?&=]/);
+    // // var paramsObj=[
+    // //     {params[1]:params[2]}
+    // // ];
+    
+    // // if(params.length==7){
+    // //     //console.log(params[1]+params[2]);
+
+    // // }
+    // // console.log(paramsObj);
+    res.render('register');
+});
+
 // check the submit data
 router.post('/checkgrade',function(req,res,next){
-    console.log(req.body);
-    var dbresult;
-    MongoClient.connect(dbUrl,{useNewUrlParser:true},function(err,db){
-        if(err) throw err;
-        var dbo=db.db(testDboName);
-        dbresult=dbo.collection(testCol).find({role:req.body.grade,name:req.body.name}).toArray(function(err,result){
-            if(err) throw err;
-            //dbresult=result;
-            console.log(result.length);
-            // res.end('end');
-            
-            db.close();
-            return result.length;
-        });
-        console.log(dbresult);
-        if(dbresult==0){
-            res.end('no');
-        }else{
-            res.end('end');
-        }
-    });
+    //console.log(req.body);
 
+    MongoClient.connect(homeUrl,{useNewUrlParser:true},function(err,db){
+        if(err) throw err;
+        var dbo=db.db(homtDboName);
+        dbo.collection(homeCol).find({class:req.body.grade,name:req.body.name}).toArray(function(err,result){
+            if(err) throw err;
+            // if no record then return bcak with a erro. otherwise to another page.
+            // console.log(result.length);
+            if(result.length==0){
+                res.end('0');
+            }else{
+                res.end('1');
+            }
+            db.close();
+        });
+    });
+    
     // get the information from mongo DB
     // try{
     //     MongoClient.connect(dbUrl,{useNewUrlParser:true},function(err,db){
@@ -64,6 +77,7 @@ router.post('/checkgrade',function(req,res,next){
     //     res.status(404).end('database error!');
     // }
 });
+
 
 // the below routers are for test.
 // This is a router for jquery test page.
