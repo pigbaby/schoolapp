@@ -7,7 +7,7 @@ var dbUrl="mongodb://localhost:27017";
 var homeUrl="mongodb://192.168.3.67:27017";
 // the database name in Mongodb
 var testDboName='test';
-var homtDboName='students';
+var homeDboName='students';
 // the collection name in mongodb
 var testCol='users';
 var homeCol='student';
@@ -22,22 +22,42 @@ router.get('/access',function(req,res,next){
 });
 
 router.get('/register',function(req,res,next){
-    // console.log(req.params);
-    // // console.log(req.url);
-    // var reqUrl=req.url;
-    // var params=new Array();
-
-    // params=reqUrl.split(/[?&=]/);
-    // // var paramsObj=[
-    // //     {params[1]:params[2]}
-    // // ];
-    
-    // // if(params.length==7){
-    // //     //console.log(params[1]+params[2]);
-
-    // // }
-    // // console.log(paramsObj);
+    // console.log(req.query.gradeid);
     res.render('register');
+    // MongoClient.connect(homeUrl,{useNewUrlParser:true},function(err,db){
+    //     if(err) throw err;
+    //     var dbo=db.db(homeDboName);
+    //     dbo.collection(homeCol).find({class:req.query.gradeid,name:req.query.name}).toArray(function(err,result){
+    //         if(err) throw err;
+
+    //         // console.log(result);
+    //         if(result.length==0){
+    //             res.end('0');
+    //         }else{
+    //             res.render('register',result);
+    //         }
+    //         db.close();
+    //     });
+    // });
+});
+
+router.get('/checkRecords',function(req,res,next){
+    
+    // MongoClient.connect(homeUrl,{useNewUrlParser:true},function(err,db){
+    //     if(err) throw err;
+    //     var dbo=db.db(homeDboName);
+    //     dbo.collection(homeCol).find({class:req.query.gradeid,name:req.query.name}).toArray(function(err,result){
+    //         if(err) throw err;
+
+    //         // console.log(result);
+    //         if(result.length==0){
+    //             res.end('0');
+    //         }else{
+    //             res.render('register',result);
+    //         }
+    //         db.close();
+    //     });
+    // });
 });
 
 // check the submit data
@@ -46,7 +66,7 @@ router.post('/checkgrade',function(req,res,next){
 
     MongoClient.connect(homeUrl,{useNewUrlParser:true},function(err,db){
         if(err) throw err;
-        var dbo=db.db(homtDboName);
+        var dbo=db.db(homeDboName);
         dbo.collection(homeCol).find({class:req.body.grade,name:req.body.name}).toArray(function(err,result){
             if(err) throw err;
             // if no record then return bcak with a erro. otherwise to another page.
@@ -54,7 +74,9 @@ router.post('/checkgrade',function(req,res,next){
             if(result.length==0){
                 res.end('0');
             }else{
-                res.end('1');
+                console.log(result);
+                res.send(result[0]);
+                // res.end('1');
             }
             db.close();
         });

@@ -105,7 +105,7 @@
             <div class="container bg-white fixed-bottom mt-1">
                 <div class="row">
                     <nav class="navbar">
-                        <strong id="curUser" name="curUser" class="align-baseline mx-1">四年一班 彭亦飞飞</strong>
+                        <strong id="curUser" name="curUser" class="align-baseline mx-1"></strong>
                         <ul class="nav font-weight-bold text-success text-center">
                             <li class="nav-item mx-1">
                                 <a href="#">
@@ -121,11 +121,11 @@
         </footer>
       
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="registerLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="registerLabel">已选课程</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -144,6 +144,12 @@
 
     <script>
         $(document).ready(function(){
+            // get the parameters from the url and display in the page.
+            //alert(window.location.search);
+            var searchParams= window.location.search.split(/[?=&]/);
+            //alert(searchParams);
+            
+            
             $("#submit").click(function(event){
                 event.preventDefault();
                 // alert("hello, let's rock");
