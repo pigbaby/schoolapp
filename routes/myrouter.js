@@ -41,33 +41,30 @@ router.get('/register',function(req,res,next){
     // });
 });
 
-router.get('/checkRecords',function(req,res,next){
-    
-    // MongoClient.connect(homeUrl,{useNewUrlParser:true},function(err,db){
+router.post('/insertData',function(req,res,next){
+    console.log(req.body);
+    res.end('1');
+    // MongoClient.connect(dbUrl,{useNewUrlParser:true},function(err,db){
     //     if(err) throw err;
     //     var dbo=db.db(homeDboName);
-    //     dbo.collection(homeCol).find({class:req.query.gradeid,name:req.query.name}).toArray(function(err,result){
-    //         if(err) throw err;
+    //     var insertObj={name:'我的小仔仔',age:10};
 
-    //         // console.log(result);
-    //         if(result.length==0){
-    //             res.end('0');
-    //         }else{
-    //             res.render('register',result);
-    //         }
+    //     dbo.collection(homeCol).insertOne(insertObj,function(err,res){
+    //         if(err) throw err;
+    //         console.log('插入成功');
     //         db.close();
     //     });
     // });
 });
 
-// check the submit data
+// check the submit person data
 router.post('/checkgrade',function(req,res,next){
     //console.log(req.body);
 
-    MongoClient.connect(homeUrl,{useNewUrlParser:true},function(err,db){
+    MongoClient.connect(dbUrl,{useNewUrlParser:true},function(err,db){
         if(err) throw err;
         var dbo=db.db(homeDboName);
-        dbo.collection(homeCol).find({class:req.body.grade,name:req.body.name}).toArray(function(err,result){
+        dbo.collection(homeCol).find({grade:req.body.grade,name:req.body.name}).toArray(function(err,result){
             if(err) throw err;
             // if no record then return bcak with a erro. otherwise to another page.
             // console.log(result.length);

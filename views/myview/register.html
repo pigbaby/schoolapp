@@ -94,7 +94,7 @@
     
                 <div class="form-group row">
                     <div>
-                        <button id="submit" type="submit" class="btn btn-primary">提交注册</button>
+                        <button id="submit" type="submit" class="btn btn-primary">提交选课</button>
                         <button id="reset" type="reset" class="btn btn-primary">重选</button>
                     </div>
                 </div>
@@ -134,7 +134,7 @@
                         <p id='selected'></p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" id="confirm" class="btn btn-primary">确认选课</button>
                     </div>
                 </div>
             </div>
@@ -167,11 +167,23 @@
                 
                 // clear the existing content
                 $('#selected').html('');
+                // get the class information in the page.
                 $('input:radio:checked').each(function(index,element){
                     $('#selected').append($(element).parent().parent().siblings('.mark').html()+':'+$(element).next('label').text()+'<br>');
                 });
                 // $('#selected').html($("#select_class").serialize());
                 $('#registerModal').modal('show');
+            });
+
+            $('#confirm').click(function(event){
+                event.preventDefault();
+                var reqParams={grade:searchParams[2],name:searchParams[6]};
+                               
+                // alert($.extend(true,reqParams,$('#select_class').serialize()));
+                // insert the data to mongodb
+                $.post('/insertData',$.extend($('#select_class').serialize(),reqParams),function(data){
+                    alert(data);
+                });
             });
         });
     </script>
