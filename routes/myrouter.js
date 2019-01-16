@@ -42,29 +42,42 @@ router.get('/register',function(req,res,next){
 });
 
 router.post('/insertData',function(req,res,next){
-    console.log(req.body);
-    res.end('1');
-    // MongoClient.connect(dbUrl,{useNewUrlParser:true},function(err,db){
-    //     if(err) throw err;
-    //     var dbo=db.db(homeDboName);
-    //     var insertObj={name:'我的小仔仔',age:10};
+    // console.log(req.body);
+    let reqData=req.body;
 
-    //     dbo.collection(homeCol).insertOne(insertObj,function(err,res){
-    //         if(err) throw err;
-    //         console.log('插入成功');
-    //         db.close();
-    //     });
-    // });
+    var insertObj={class:reqData.grade,name:reqData.name};
+    var searchObj={class:reqData.grade,name:reqData.name};
+    var classInfo=reqData.insertData.split('&');
+    // var objectStr=JSON.stringify(insertObj);
+    for(let item in classInfo){
+        // console.log(classInfo);
+        let subClassInfo = classInfo[item].split('=');
+        // insertObj.newParam=subClassInfo[0];
+        insertObj[subClassInfo[0]]=subClassInfo[1];
+    }
+    console.log(insertObj);
+    console.log(searchObj);
+    MongoClient.connect(homeUrl,{useNewUrlParser:true},function(err,db){
+        if(err) throw err;
+        var dbo=db.db(homeDboName);
+        
+        dbo.collection(homeCol).updateOne(searchObj,{$set:insertObj},function(err,res){
+            if(err) throw err;
+            console.log('插入成功');
+            db.close();
+        });
+    });
+    res.end('1');
 });
 
 // check the submit person data
 router.post('/checkgrade',function(req,res,next){
     //console.log(req.body);
 
-    MongoClient.connect(dbUrl,{useNewUrlParser:true},function(err,db){
+    MongoClient.connect(homeUrl,{useNewUrlParser:true},function(err,db){
         if(err) throw err;
         var dbo=db.db(homeDboName);
-        dbo.collection(homeCol).find({grade:req.body.grade,name:req.body.name}).toArray(function(err,result){
+        dbo.collection(homeCol).find({class:req.body.grade,name:req.body.name}).toArray(function(err,result){
             if(err) throw err;
             // if no record then return bcak with a erro. otherwise to another page.
             // console.log(result.length);

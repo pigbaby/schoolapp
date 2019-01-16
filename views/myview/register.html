@@ -145,6 +145,16 @@
         $(document).ready(function(){
             // get the parameters from the url and display in the page.
             var searchParams= decodeURI(window.location.search).split(/[?&=]/);
+            // alert(searchParams.pop());
+            let existClass=searchParams.pop();
+            // alert(existClass);
+            $.each(existClass.split('-'),function(index,element){
+                if(element!==null&&typeof element!='undefined'&&element!==""){
+                    alert(element);
+                    $('#'+element).attr('checked',true);
+                }
+                
+            });
             // for(let item in searchParams){   
             //     alert(searchParams[item]);
             // }
@@ -177,13 +187,21 @@
 
             $('#confirm').click(function(event){
                 event.preventDefault();
-                var reqParams={grade:searchParams[2],name:searchParams[6]};
-                               
-                // alert($.extend(true,reqParams,$('#select_class').serialize()));
-                // insert the data to mongodb
-                $.post('/insertData',$.extend($('#select_class').serialize(),reqParams),function(data){
-                    alert(data);
-                });
+                if($('#select_class').serialize().length!=0){
+                    var reqParams={grade:searchParams[4],name:searchParams[6],insertData:$('#select_class').serialize()};
+                    // alert($.extend(false,$('#select_class').serialize(),reqParams));
+                    // alert($.extend(true,reqParams,$('#select_class').serialize()));
+                    // insert the data to mongodb
+                    $.post('/insertData',reqParams,function(data){
+                        // alert(data);
+                        alert('您已成功报名');
+                        $('#registerModal').modal('hide');
+                    });
+                }else{
+                    alert('您还没有选择课程');
+                    $('#registerModal').modal('hide');
+                }
+                
             });
         });
     </script>
