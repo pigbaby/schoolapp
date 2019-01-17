@@ -11,165 +11,301 @@
         <script src="/popper/popper.min.js"></script>
         <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
     </head>
-    <body>                  
-        <h4 class="text-center">课程一览</h4>
-        <div class="container-fluid">
-            <!-------------------------------- 星期一课程 ------------------------------------------>
-            <!-- create a link to control the grade display or hide -->
-            <div class="row">
-                <button class="btn bg-gray btn-block mb-2" type="button" data-toggle="collapse" data-target=".monday" aria-expanded="false">
-                    星期一
-                </button>
-            </div>
-            <div class="row collapse monday mb-2">
-                <div class="card col-md-6 mb-1">
-                    <div class="card-header">
-                        数学思维社团1
+    <body> 
+        <header>
+        
+        </header>
+    
+        <main>
+            <h4 class="text-center">课程一览</h4>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="monday-tab" data-toggle="tab" href="#monContent" role="tab" aria-controls="monContent" aria-selected="true">周一</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="tuesday-tab" data-toggle="tab" href="#tueContent" role="tab" aria-controls="tueContent" aria-selected="false">周二</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="wendesday-tab" data-toggle="tab" href="#wenContent" role="tab" aria-controls="wenContent" aria-selected="false">周三</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="thirsday-tab" data-toggle="tab" href="#thiContent" role="tab" aria-controls="thiContent" aria-selected="false">周四</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="friday-tab" data-toggle="tab" href="#friContent" role="tab" aria-controls="friContent" aria-selected="false">周五</a>
+                </li>
+            </ul>
+            <div data-spy="scroll" data-target="#myTab" data-offset="0">
+                <div class="container-fluid tab-content">
+                    <!-------------------------------- 星期一课程 ------------------------------------------>
+                    <!-- create a link to control the grade display or hide -->
+                    <div class="row tab-pane fade show active mb-2" id='monContent'>
+                        <div class="card col-md-6 mb-1">
+                            <div class="card-header">
+                                数学思维社团1
+                            </div>
+                            <div class="card-body">
+                                以奥林匹克数学为基础学习。
+                            </div>
+                        </div>
+        
+                        <div class="card col-md-6 mb-1">
+                            <div class="card-header">
+                                数学思维社团2
+                            </div>
+                            <div class="card-body">
+                                以奥林匹克数学为基础学习。
+                            </div>
+                        </div>
+        
+                        <div class="card col-md-6 mb-1">
+                            <div class="card-header">
+                                数学思维社团3
+                            </div>
+                            <div class="card-body">
+                                以奥林匹克数学为基础学习。
+                            </div>
+                        </div>
+                        <div class="card col-md-6 mb-1">
+                            <div class="card-header">
+                                数学思维社团4
+                            </div>
+                            <div class="card-body">
+                                以奥林匹克数学为基础学习。
+                            </div>
+                        </div>
+        
+                        <div class="card col-md-6 mb-1">
+                            <div class="card-header">
+                                数学思维社团5
+                            </div>
+                            <div class="card-body">
+                                以奥林匹克数学为基础学习。
+                            </div>
+                        </div>
+                        <div class="card col-md-6 mb-1">
+                            <div class="card-header">
+                                数学思维社团6
+                            </div>
+                            <div class="card-body">
+                                以奥林匹克数学为基础学习。
+                            </div>
+                        </div>
+                        <div class="card col-md-6 mb-1">
+                                <div class="card-header">
+                                    数学思维社团7
+                                </div>
+                                <div class="card-body">
+                                    以奥林匹克数学为基础学习。
+                                </div>
+                            </div>
                     </div>
-                    <div class="card-body">
-                        以奥林匹克数学为基础学习。
+                    <!-------------------------------- 星期二课程 ------------------------------------------>
+                    <!-- create a link to control the grade display or hide -->
+                    <div class="row tab-pane fade mb-2" id='tueContent'>
+                        <div class="card col-md-6 mb-1">
+                            <div class="card-header">
+                                数学思维社团1
+                            </div>
+                            <div class="card-body">
+                                以奥林匹克数学为基础学习。
+                            </div>
+                        </div>
+        
+                        <div class="card col-md-6 mb-1">
+                            <div class="card-header">
+                                数学思维社团2
+                            </div>
+                            <div class="card-body">
+                                以奥林匹克数学为基础学习。
+                            </div>
+                        </div>
+        
+                        <div class="card col-md-6 mb-1">
+                            <div class="card-header">
+                                数学思维社团3
+                            </div>
+                            <div class="card-body">
+                                以奥林匹克数学为基础学习。
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-------------------------------- 星期三课程 ------------------------------------------>
+                    <!-- create a link to control the grade display or hide -->
+                    <div class="row tab-pane fade mb-2" id='wenContent'>
+                        <div class="card col-md-6 mb-1">
+                            <div class="card-header">
+                                数学思维社团1
+                            </div>
+                            <div class="card-body">
+                                以奥林匹克数学为基础学习。
+                            </div>
+                        </div>
+        
+                        <div class="card col-md-6 mb-1">
+                            <div class="card-header">
+                                数学思维社团2
+                            </div>
+                            <div class="card-body">
+                                以奥林匹克数学为基础学习。
+                            </div>
+                        </div>
+        
+                        <div class="card col-md-6 mb-1">
+                            <div class="card-header">
+                                数学思维社团3
+                            </div>
+                            <div class="card-body">
+                                以奥林匹克数学为基础学习。
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-------------------------------- 星期四课程 ------------------------------------------>
+                    <!-- create a link to control the grade display or hide -->
+                    <div class="row tab-pane fade mb-2" id='thiContent'>
+                        <div class="card col-md-6 mb-1">
+                            <div class="card-header">
+                                数学思维社团1
+                            </div>
+                            <div class="card-body">
+                                以奥林匹克数学为基础学习。
+                            </div>
+                        </div>
+        
+                        <div class="card col-md-6 mb-1">
+                            <div class="card-header">
+                                数学思维社团2
+                            </div>
+                            <div class="card-body">
+                                以奥林匹克数学为基础学习。
+                            </div>
+                        </div>
+        
+                        <div class="card col-md-6 mb-1">
+                            <div class="card-header">
+                                数学思维社团3
+                            </div>
+                            <div class="card-body">
+                                以奥林匹克数学为基础学习。
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-------------------------------- 星期五课程 ------------------------------------------>
+                    <!-- create a link to control the grade display or hide -->
+                    <div class="row tab-pane fade friday mb-2" id='friContent'>
+                        <div class="card col-md-6 mb-1">
+                            <div class="card-header">
+                                数学思维社团1
+                            </div>
+                            <div class="card-body">
+                                以奥林匹克数学为基础学习。
+                            </div>
+                        </div>
+        
+                        <div class="card col-md-6 mb-1">
+                            <div class="card-header">
+                                数学思维社团2
+                            </div>
+                            <div class="card-body">
+                                以奥林匹克数学为基础学习。
+                            </div>
+                        </div>
+        
+                        <div class="card col-md-6 mb-1">
+                            <div class="card-header">
+                                数学思维社团3
+                            </div>
+                            <div class="card-body">
+                                以奥林匹克数学为基础学习。
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="card col-md-6 mb-1">
-                    <div class="card-header">
-                        数学思维社团2
-                    </div>
-                    <div class="card-body">
-                        以奥林匹克数学为基础学习。
+            </div>
+        </main>
+        <br><br><br><br>
+        <footer>
+            <div class="container bg-white fixed-bottom mt-1">
+                    <div class="row">
+                        <nav class="navbar">
+                            <strong id="curUser" name="curUser" class="align-baseline mx-1"></strong>
+                            <ul class="nav font-weight-bold text-success text-center">
+                                <li class="nav-item mx-1">
+                                    <a id="regLink">
+                                        <img src="images/main.png" height="30" width="30"/>
+                                        <br>
+                                        我要报名
+                                    </a>
+                                </li>
+                                <li class="nav-item mx-1">
+                                    <a href="#">
+                                        <img src="images/classes.png" height="30" width="30"/>
+                                        <br>
+                                        我的报名
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
+        </footer>
+        
 
-                <div class="card col-md-6 mb-1">
-                    <div class="card-header">
-                        数学思维社团3
+        <!-- Pop-up Modal -->
+        <div class="modal fade" id="popModal" tabindex="-1" role="dialog" aria-labelledby="popModalLable" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="popModalLable">请选择需要报名的学生</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                     </div>
-                    <div class="card-body">
-                        以奥林匹克数学为基础学习。
+                    <div class="modal-body">
+                        <form id="selectForm" name="selectForm">
+                            <div class="form-group">
+                                <label for="gradeList">请选择年级</label>
+                                <select class="form-control" name="grade" id="gradeList">
+                                    <option value="1.1">一年级一班</option>
+                                    <option value="1.2">一年级二班</option>
+                                    <option value="1.3">一年级三班</option>
+                                    <option value="1.4">一年级四班</option>
+                                    <option value="2.1">二年级一班</option>
+                                    <option value="2.2">二年级二班</option>
+                                    <option value="2.3">二年级三班</option>
+                                    <option value="2.4">二年级四班</option>
+                                    <option value="3.1">三年级一班</option>
+                                    <option value="3.2">三年级二班</option>
+                                    <option value="3.3">三年级三班</option>
+                                    <option value="3.4">三年级四班</option>
+                                    <option value="4.1">四年级一班</option>
+                                    <option value="4.2">四年级二班</option>
+                                    <option value="4.3">四年级三班</option>
+                                    <option value="4.4">四年级四班</option>
+                                    <option value="5.1">五年级一班</option>
+                                    <option value="5.2">五年级二班</option>
+                                    <option value="5.3">五年级三班</option>
+                                    <option value="5.4">五年级四班</option>
+                                    <option value="6.1">六年级一班</option>
+                                    <option value="6.2">六年级二班</option>
+                                    <option value="6.3">六年级三班</option>
+                                    <option value="6.4">六年级四班</option>
+                                </select>
+                                <input class="form-control" type="input" placeholder="输入学生姓名" id="stuName" name="name">
+                            </div>
+                        </form>
+                        <p id='selected'></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="cancelBtn" data-dismiss="modal">等会选</button>
+                        <button type="button" class="btn btn-primary" id="selectBtn">选了</button>
                     </div>
                 </div>
-            </div>
-            <!-------------------------------- 星期二课程 ------------------------------------------>
-            <!-- create a link to control the grade display or hide -->
-            <div class="row">
-                <button class="btn bg-gray btn-block mb-2" type="button" data-toggle="collapse" data-target=".tuesday" aria-expanded="false">
-                    星期二
-                </button>
-            </div>
-            <div class="row collapse tuesday mb-2">
-                
-            </div>
-
-            <!-------------------------------- 星期三课程 ------------------------------------------>
-            <!-- create a link to control the grade display or hide -->
-            <div class="row">
-                <button class="btn bg-gray btn-block mb-2" type="button" data-toggle="collapse" data-target=".wendesday" aria-expanded="false">
-                    星期三
-                </button>
-            </div>
-            <div class="row collapse wendesday mb-2">
-                
-            </div>
-
-            <!-------------------------------- 星期四课程 ------------------------------------------>
-            <!-- create a link to control the grade display or hide -->
-            <div class="row">
-                <button class="btn bg-gray btn-block mb-2" type="button" data-toggle="collapse" data-target=".thirsday" aria-expanded="false">
-                    星期四
-                </button>
-            </div>
-            <div class="row collapse thirsday mb-2">
-                
-            </div>
-
-            <!-------------------------------- 星期五课程 ------------------------------------------>
-            <!-- create a link to control the grade display or hide -->
-            <div class="row">
-                <button class="btn bg-gray btn-block mb-2" type="button" data-toggle="collapse" data-target=".friday" aria-expanded="false">
-                    星期五
-                </button>
-            </div>
-            <div class="row collapse friday mb-2">
-                
             </div>
         </div>
-
-        <div class="container bg-white fixed-bottom mt-1">
-                <div class="row">
-                    <nav class="navbar">
-                        <strong id="curUser" name="curUser" class="align-baseline mx-1"></strong>
-                        <ul class="nav font-weight-bold text-success text-center">
-                            <li class="nav-item mx-1">
-                                <a id="regLink">
-                                    <img src="images/main.png" height="30" width="30"/>
-                                    <br>
-                                    我要报名
-                                </a>
-                            </li>
-                            <li class="nav-item mx-1">
-                                <a href="#">
-                                    <img src="images/classes.png" height="30" width="30"/>
-                                    <br>
-                                    我的报名
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-
-            <!-- Pop-up Modal -->
-            <div class="modal fade" id="popModal" tabindex="-1" role="dialog" aria-labelledby="popModalLable" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="popModalLable">请选择需要报名的学生</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="selectForm" name="selectForm">
-                                <div class="form-group">
-                                    <label for="gradeList">请选择年级</label>
-                                    <select class="form-control" name="grade" id="gradeList">
-                                        <option value="1.1">一年级一班</option>
-                                        <option value="1.2">一年级二班</option>
-                                        <option value="1.3">一年级三班</option>
-                                        <option value="1.4">一年级四班</option>
-                                        <option value="2.1">二年级一班</option>
-                                        <option value="2.2">二年级二班</option>
-                                        <option value="2.3">二年级三班</option>
-                                        <option value="2.4">二年级四班</option>
-                                        <option value="3.1">三年级一班</option>
-                                        <option value="3.2">三年级二班</option>
-                                        <option value="3.3">三年级三班</option>
-                                        <option value="3.4">三年级四班</option>
-                                        <option value="4.1">四年级一班</option>
-                                        <option value="4.2">四年级二班</option>
-                                        <option value="4.3">四年级三班</option>
-                                        <option value="4.4">四年级四班</option>
-                                        <option value="5.1">五年级一班</option>
-                                        <option value="5.2">五年级二班</option>
-                                        <option value="5.3">五年级三班</option>
-                                        <option value="5.4">五年级四班</option>
-                                        <option value="6.1">六年级一班</option>
-                                        <option value="6.2">六年级二班</option>
-                                        <option value="6.3">六年级三班</option>
-                                        <option value="6.4">六年级四班</option>
-                                    </select>
-                                    <input class="form-control" type="input" placeholder="输入学生姓名" id="stuName" name="name">
-                                </div>
-                            </form>
-                            <p id='selected'></p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" id="cancelBtn" data-dismiss="modal">等会选</button>
-                            <button type="button" class="btn btn-primary" id="selectBtn">选了</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
         <!--Script-->
         <script>

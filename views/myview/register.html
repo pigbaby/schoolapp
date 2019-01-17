@@ -108,10 +108,10 @@
                         <strong id="curUser" name="curUser" class="align-baseline mx-1"></strong>
                         <ul class="nav font-weight-bold text-success text-center">
                             <li class="nav-item mx-1">
-                                <a href="#">
+                                <a href="/">
                                     <img src="images/classes.png" height="30" width="30"/>
                                     <br>
-                                    我的报名
+                                    课程介绍
                                 </a>
                             </li>
                         </ul>
@@ -150,7 +150,7 @@
             // alert(existClass);
             $.each(existClass.split('-'),function(index,element){
                 if(element!==null&&typeof element!='undefined'&&element!==""){
-                    alert(element);
+                    // alert(element);
                     $('#'+element).attr('checked',true);
                 }
                 

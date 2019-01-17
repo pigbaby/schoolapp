@@ -45,8 +45,8 @@ router.post('/insertData',function(req,res,next){
     // console.log(req.body);
     let reqData=req.body;
 
-    var insertObj={class:reqData.grade,name:reqData.name};
-    var searchObj={class:reqData.grade,name:reqData.name};
+    var insertObj={grade:reqData.grade,name:reqData.name};
+    var searchObj={grade:reqData.grade,name:reqData.name};
     var classInfo=reqData.insertData.split('&');
     // var objectStr=JSON.stringify(insertObj);
     for(let item in classInfo){
@@ -57,7 +57,7 @@ router.post('/insertData',function(req,res,next){
     }
     console.log(insertObj);
     console.log(searchObj);
-    MongoClient.connect(homeUrl,{useNewUrlParser:true},function(err,db){
+    MongoClient.connect(dbUrl,{useNewUrlParser:true},function(err,db){
         if(err) throw err;
         var dbo=db.db(homeDboName);
         
@@ -74,10 +74,10 @@ router.post('/insertData',function(req,res,next){
 router.post('/checkgrade',function(req,res,next){
     //console.log(req.body);
 
-    MongoClient.connect(homeUrl,{useNewUrlParser:true},function(err,db){
+    MongoClient.connect(dbUrl,{useNewUrlParser:true},function(err,db){
         if(err) throw err;
         var dbo=db.db(homeDboName);
-        dbo.collection(homeCol).find({class:req.body.grade,name:req.body.name}).toArray(function(err,result){
+        dbo.collection(homeCol).find({grade:req.body.grade,name:req.body.name}).toArray(function(err,result){
             if(err) throw err;
             // if no record then return bcak with a erro. otherwise to another page.
             // console.log(result.length);
