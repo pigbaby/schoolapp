@@ -95,7 +95,7 @@
                 <div class="form-group row">
                     <div>
                         <button id="submit" type="submit" class="btn btn-primary">提交选课</button>
-                        <button id="reset" type="reset" class="btn btn-primary">重选</button>
+                        <button id="return" class="btn btn-primary">重选</button>
                     </div>
                 </div>
             </form>
@@ -203,6 +203,16 @@
                 }
                 
             });
+
+            $('#return').click(function(event){
+                event.preventDefault();
+                // Remove the existing 'Checked' option
+                $(':checked').removeAttr('checked');
+                // Reset the whole form.
+                $('form')[0].reset();
+            });
+            
         });
+        
     </script>
 </html>
